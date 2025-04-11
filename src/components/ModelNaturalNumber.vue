@@ -69,4 +69,31 @@ const increment = () => {
   min-width: 20px;
   text-align: center;
 }
+
+.natural-number-control button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: dodgerblue;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.natural-number-control button:hover:not(:disabled) {
+  background-color: #1e90ff; /* slightly darker dodgerblue */
+}
+
+.natural-number-control button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 </style>
