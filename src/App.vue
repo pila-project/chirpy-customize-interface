@@ -3,7 +3,7 @@
 
     <Header />
 
-    <p><em>The game always uses addition and subtraction. Adjust the settins below and click 'Create' to generate a new game.</em></p>
+    <p><em>The game always uses addition and subtraction. Adjust the settings below and click 'Create' to generate a new game.</em></p>
 
     <ChirpyOptions />
 
