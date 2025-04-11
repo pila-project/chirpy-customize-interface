@@ -1,15 +1,17 @@
 <template>
-  <main>
-    <h1>Hello World</h1>
-    <ToggleSwitch v-model="switchValue" />
-    {{ switchValue }}
-  </main>
+  <div class="whatever">
+    <ChirpyOptions />
+
+  </div>
 </template>
 
 <script setup>
-import ToggleSwitch from './components/ToggleSwitch.vue'
-
-import { ref } from 'vue'
-const switchValue = ref(false)
+import ChirpyOptions from './components/ChirpyOptions.vue'
 
 </script>
+
+
+<style scoped>
+
+
+</style>
