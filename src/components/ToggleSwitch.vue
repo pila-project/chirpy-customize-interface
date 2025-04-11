@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits, computed } from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps({
   modelValue: {
@@ -58,7 +58,7 @@ const model = computed({
   transition: transform 0.2s;
 }
 input:checked + .slider {
-  background-color: #4caf50;
+  background-color: dodgerblue;
 }
 input:checked + .slider::before {
   transform: translateX(18px);

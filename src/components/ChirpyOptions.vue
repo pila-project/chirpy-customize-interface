@@ -51,13 +51,10 @@ const chirpyOptions = reactive(copy(defaultChirpyOptions))
 
 <style scoped>
 .table {
-  max-width: 500px;
   display: flex;
   flex-direction: column;
   border-radius: 6px;
   overflow: hidden;
-  font-family: sans-serif;
-  font-size: 14px;
 }
 
 .row {
