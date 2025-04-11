@@ -1,7 +1,7 @@
 <template>
   <div class="table">
     <div class="row" v-for="(val, key) in chirpyOptions" :key="key">
-      <span class="label">{{ key }}</span>
+      <span class="label">{{ optionText[key] }}</span>
       <span class="action">
         <ToggleSwitch
           v-if="typeof val === 'boolean'"
@@ -14,7 +14,6 @@
         />
       </span>
     </div>
-    <pre>{{ chirpyOptions }}</pre>
   </div>
 </template>
 
@@ -33,6 +32,17 @@ const defaultChirpyOptions = {
   divisionWithFractions: false,
   divisionWithNegatives: false
 }
+
+const optionText = {
+  trackLength: 'Track length',
+  distractors: 'Distracting wrong paths',
+  multiplication: 'Multiplication',
+  division: 'Division',
+  divisionWithFractions: 'Division resulting in non-integers',
+  divisionWithNegatives: 'Division with negative numbers'
+}
+
+
 
 const chirpyOptions = reactive(copy(defaultChirpyOptions))
 
