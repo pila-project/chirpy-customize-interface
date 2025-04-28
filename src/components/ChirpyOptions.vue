@@ -1,16 +1,16 @@
 <template>
   <div class="table">
-    <div class="row" v-for="(val, key) in chirpyOptions" :key="key">
+    <div class="row" v-for="(val, key) in options" :key="key">
       <span class="label">{{ optionText[key] }}</span>
       <span class="action">
         <ToggleSwitch
           v-if="typeof val === 'boolean'"
-          v-model="chirpyOptions[key]"
+          v-model="options[key]"
         />
         <ModelNaturalNumber
           v-else-if="typeof val === 'number'"
           :max="6"
-          v-model="chirpyOptions[key]"
+          v-model="options[key]"
         />
       </span>
     </div>
@@ -20,18 +20,10 @@
 <script setup>
 import ToggleSwitch from './ToggleSwitch.vue'
 import ModelNaturalNumber from './ModelNaturalNumber.vue'
-import { reactive } from 'vue'
+
+defineProps({ options: Object })
 
 const copy = x => JSON.parse(JSON.stringify(x))
-
-const defaultChirpyOptions = {
-  trackLength: 3,
-  distractors: false,
-  multiplication: true,
-  division: false,
-  divisionWithFractions: false,
-  divisionWithNegatives: false
-}
 
 const optionText = {
   trackLength: 'Track length',
@@ -41,10 +33,6 @@ const optionText = {
   divisionWithFractions: 'Division resulting in non-integers',
   divisionWithNegatives: 'Division with negative numbers'
 }
-
-
-
-const chirpyOptions = reactive(copy(defaultChirpyOptions))
 
 </script>
 
