@@ -87,6 +87,7 @@
       active: {
         name: nameInput.value,
         game: '25a6ac35e1c25713b5fedd0008599a52',
+        image: 'https://chirpy-bird.pilaproject.org/Chirpy.png',
         configuration: JSON.parse(JSON.stringify(options))
       }
     })
