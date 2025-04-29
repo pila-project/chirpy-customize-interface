@@ -28,7 +28,7 @@ const optionText = {
   distractors: 'Distracting wrong paths',
   multiplication: 'Multiplication',
   division: 'Division',
-  divisionWithFractions: 'Division resulting in non-integers',
+  nonIntegerDivision: 'Division resulting in non-integers',
   negDivision: 'Division with negative numbers'
 }
 

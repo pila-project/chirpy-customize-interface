@@ -49,7 +49,7 @@
 //    distractors: false,
     multiplication: true,
     division: false,
-//    divisionWithFractions: false,
+    nonIntegerDivision: false,
     negDivision: false
   })
 

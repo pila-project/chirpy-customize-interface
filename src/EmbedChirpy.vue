@@ -6,8 +6,6 @@
 
   const chirpyLink = ref(null)
 
-  console.log('iD????', id)
-
   Agent
     .state(id)
     .then(async ({ game, configuration }) => {
