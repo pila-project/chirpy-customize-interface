@@ -10,8 +10,9 @@
 
   Agent
     .state(id)
-    .then(({ game, configuration }) => {
-      console.log(configuration)
+    .then(async ({ game, configuration }) => {
+      const { variables } = await Agent.environment()
+      variables.configuration = configuration
       chirpyLink.value = `https://pila.cand.li/pila-play.html?game=${game}`
     })
 </script>

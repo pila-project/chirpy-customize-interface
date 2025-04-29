@@ -20,6 +20,13 @@
       >
         {{ copied ? 'Copied!' : 'Copy' }}
       </button>
+      <br>
+      <button
+        class="play-button"
+        @click="play"
+      >
+        Play
+      </button>
     </div>
     <button
       v-else
@@ -38,18 +45,18 @@
   import Header from './components/Header.vue'
 
   const options = reactive({
-    trackLength: 3,
-    distractors: false,
+    length: 3,
+//    distractors: false,
     multiplication: true,
     division: false,
-    divisionWithFractions: false,
-    divisionWithNegatives: false
+//    divisionWithFractions: false,
+    negDivision: false
   })
 
   watch(
     () => options,
     () => createdId.value = null,
-    { deep: true}
+    { deep: true }
   )
 
   const createdId = ref(null)
@@ -76,6 +83,10 @@
     copied.value = true
   }
 
+  function play() {
+    window.open(`/${createdId.value}`, '_blank')
+  }
+
 
 </script>
 
@@ -95,6 +106,7 @@
 
 
 .copy-button,
+.play-button,
 .create-button {
   width: fit-content;
   align-self: flex-end;
@@ -113,9 +125,20 @@
 }
 
 .copy-button:hover,
+.play-button:hover,
 .create-button:hover {
   background-color: #ffb300;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+.play-button {
+  background-color: dodgerblue;
+}
+
+.play-button:hover {
+  background-color: dodgerblue;
+  opacity: 0.8;
 }
 
 .created-id {

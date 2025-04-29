@@ -23,15 +23,13 @@ import ModelNaturalNumber from './ModelNaturalNumber.vue'
 
 defineProps({ options: Object })
 
-const copy = x => JSON.parse(JSON.stringify(x))
-
 const optionText = {
-  trackLength: 'Track length',
+  length: 'Track length',
   distractors: 'Distracting wrong paths',
   multiplication: 'Multiplication',
   division: 'Division',
   divisionWithFractions: 'Division resulting in non-integers',
-  divisionWithNegatives: 'Division with negative numbers'
+  negDivision: 'Division with negative numbers'
 }
 
 </script>
