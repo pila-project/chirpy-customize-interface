@@ -1,7 +1,7 @@
 <template>
   <div class="table">
     <div class="row" v-for="(val, key) in options" :key="key">
-      <span class="label">{{ optionText[key] }}</span>
+      <span class="label">{{ t(key) }}</span>
       <span class="action">
         <ToggleSwitch
           v-if="typeof val === 'boolean'"
@@ -20,16 +20,15 @@
 <script setup>
 import ToggleSwitch from './ToggleSwitch.vue'
 import ModelNaturalNumber from './ModelNaturalNumber.vue'
+import translations from '../translations/translations.js'
 
-defineProps({ options: Object })
+const props = defineProps({
+  options: Object,
+  language: String
+})
 
-const optionText = {
-  length: 'Track length',
-  distractors: 'Distracting wrong paths',
-  multiplication: 'Multiplication',
-  division: 'Division',
-  nonIntegerDivision: 'Division resulting in non-integers',
-  negDivision: 'Division with negative numbers'
+function t(slug) {
+  return translations(slug, props.language) // so lang isn't needed as argument for each call
 }
 
 </script>

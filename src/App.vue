@@ -1,31 +1,31 @@
 <template>
   <div class="wrapper">
 
-    <Header />
+    <Header :language="language" @language="language = $event"/>
 
-    <p><em>The game always uses addition and subtraction. Adjust the settings below and click 'Create' to generate a new game.</em></p>
+    <p><em>{{ t('instructions_1') }}</em></p>
 
-    <ChirpyOptions :options="options" />
+    <ChirpyOptions :options="options" :language="language" />
 
     <div
       v-if="createdId"
       class="created-id"
     >
-      Copy the id below to use this game in your PILA sequences and assignments.
+      {{ t('instructions_2') }}
       <br><br>
       {{ createdId }}
       <button
         class="copy-button"
         @click="copy"
       >
-        {{ copied ? 'Copied!' : 'Copy' }}
+        {{ copied ? t('copied') : t('copy') }}
       </button>
       <br>
       <button
         class="play-button"
         @click="play"
       >
-        Play
+        {{ t('play') }}
       </button>
     </div>
     <button
@@ -33,7 +33,7 @@
       class="create-button"
       @click="getCode"
     >
-      Create
+      {{ t('create') }}
     </button>
 
   </div>
@@ -43,6 +43,14 @@
   import { ref, reactive, watch } from 'vue'
   import ChirpyOptions from './components/ChirpyOptions.vue'
   import Header from './components/Header.vue'
+  import matchNavigatorLanguage from './translations/matchNavigatorLanguage.js'
+  import translations from './translations/translations.js'
+
+  const language = ref(matchNavigatorLanguage(['en', 'th']))
+
+  function t(slug) {
+    return translations(slug, language.value) // so lang isn't needed as argument for each call
+  }
 
   const options = reactive({
     length: 3,
