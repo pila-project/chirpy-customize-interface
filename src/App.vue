@@ -28,14 +28,25 @@
         {{ t('play') }}
       </button>
     </div>
-    <button
+    <div
       v-else
-      class="create-button"
-      @click="getCode"
+      style="
+        display: flex;
+        justify-content: space-between;
+      "
     >
-      {{ t('create') }}
-    </button>
-
+      <input
+        id="name-input"
+        type='text'
+        v-model="nameInput"
+      />
+      <button
+        class="create-button"
+        @click="getCode"
+      >
+        {{ t('create') }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -46,11 +57,12 @@
   import matchNavigatorLanguage from './translations/matchNavigatorLanguage.js'
   import translations from './translations/translations.js'
 
-  const language = ref(matchNavigatorLanguage(['en', 'th']))
-
   function t(slug) {
     return translations(slug, language.value) // so lang isn't needed as argument for each call
   }
+
+  const language = ref(matchNavigatorLanguage(['en', 'th']))
+  const nameInput = ref(t('new_chirpy_game'))
 
   const options = reactive({
     length: 3,
@@ -73,6 +85,7 @@
   async function getCode() {
     const id = await Agent.create({
       active: {
+        name: nameInput.value,
         game: '25a6ac35e1c25713b5fedd0008599a52',
         configuration: JSON.parse(JSON.stringify(options))
       }
@@ -152,6 +165,14 @@
 .created-id {
   text-align: center;
   padding: 1em;
+}
+
+#name-input {
+  border: none;
+  border-bottom: 4px solid #AAAAAA;
+  padding: 0px 16px;
+  flex-grow: 1;
+  font-size: 20px;
 }
 
 </style>

@@ -67,4 +67,8 @@ const translationMap = {
 		en: "Division with negative numbers",
 		th: "การหารที่มีจำนวนลบ"
 	},
+	new_chirpy_game: {
+		en: "New Chirpy Game",
+		th: "เกมเชอร์ปี้ใหม่"
+	}
 }
