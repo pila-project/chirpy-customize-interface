@@ -16,7 +16,9 @@
       gameId = game
       const { variables } = await Agent.environment()
       variables.configuration = configuration
-      const lang = variables.LANGUAGES?.[0]?.split('-')[0] || 'en'
+      const urlParams = new URLSearchParams(window.location.search)
+      const langParam = urlParams.get('lang')
+      const lang = langParam || variables.LANGUAGES?.[0]?.split('-')[0] || 'en'
       chirpyLink.value = `https://pila.cand.li/pila-play.html?game=${game}&lang=${lang}`
     })
 

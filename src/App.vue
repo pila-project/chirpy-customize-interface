@@ -106,7 +106,7 @@
   }
 
   function play() {
-    window.open(`/${createdId.value}`, '_blank')
+    window.open(`/${createdId.value}?lang=${language.value}`, '_blank')
   }
 
 
