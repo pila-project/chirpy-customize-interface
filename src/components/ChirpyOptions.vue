@@ -9,7 +9,7 @@
         />
         <ModelNaturalNumber
           v-else-if="typeof val === 'number'"
-          :max="6"
+          :max="15"
           v-model="options[key]"
         />
       </span>
