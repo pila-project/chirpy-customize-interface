@@ -1,5 +1,5 @@
 <template>
-  <div class="radio-choice-control">
+  <div :class="`radio-choice-control ${props.secondaryColor ? 'secondary-color' : ''}`">
     <label 
       v-for="(option, idx) in options" 
       :key="idx" 
@@ -25,6 +25,11 @@ const props = defineProps({
   options: {
     type: Array,
     required: true
+  },
+  secondaryColor: {
+    type: Boolean,
+    required: false,
+    default: false
   }
 })
 
@@ -37,8 +42,15 @@ const updateValue = (val) => {
 
 <style scoped>
 .radio-choice-control {
+  --accent-color: dodgerblue;
+  --secondary-color: mediumpurple;
+
   display: flex;
   gap: 12px;
+}
+
+.radio-choice-control.secondary-color {
+  --accent-color: var(--secondary-color);
 }
 
 .radio-option {
@@ -50,7 +62,7 @@ const updateValue = (val) => {
 }
 
 .radio-option input[type="radio"] {
-  accent-color: mediumpurple; /* modern browsers */
+  accent-color: var(--accent-color);
   width: 16px;
   height: 16px;
   cursor: pointer;

@@ -1,5 +1,5 @@
 <template>
-  <div class="natural-number-control">
+  <div :class="`natural-number-control ${props.secondaryColor ? 'secondary-color' : ''}`">
     <button
     	@click="decrement"
     	:disabled="modelValue <= 0"
@@ -22,6 +22,11 @@ const props = defineProps({
   	type: Number,
   	required: false,
   	default: Infinity
+  },
+  secondaryColor: {
+    type: Boolean,
+    required: false,
+    default: false
   }
 })
 
@@ -42,9 +47,14 @@ const increment = () => {
 
 <style scoped>
 .natural-number-control {
+  --accent-color: dodgerblue;
+  --secondary-color: mediumpurple;
   display: flex;
   align-items: center;
   gap: 8px;
+}
+.natural-number-control.secondary-color {
+  --accent-color: var(--secondary-color);
 }
 
 .natural-number-control button {
@@ -74,7 +84,7 @@ const increment = () => {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background-color: dodgerblue;
+  background-color: var(--accent-color);
   color: white;
   border: none;
   font-size: 18px;
@@ -85,10 +95,6 @@ const increment = () => {
   justify-content: center;
   cursor: pointer;
   transition: background-color 0.2s ease, opacity 0.2s ease;
-}
-
-.natural-number-control button:hover:not(:disabled) {
-  background-color: #1e90ff; /* slightly darker dodgerblue */
 }
 
 .natural-number-control button:disabled {

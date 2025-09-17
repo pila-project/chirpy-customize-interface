@@ -6,22 +6,24 @@
       <span class="action">
         <ToggleSwitch
           v-if="key === 'mixed_units'"
+          secondaryColor
           v-model="options[key]"
         />
         <ModelNaturalNumber
           v-else-if="key === 'potion_making_rounds'"
           :max="15"
+          secondaryColor
           v-model="options[key]"
         />
-        <ModelRadioSelection
-            v-else-if="key === 'difficulty'"
-            v-model="options[key]"
-            :options="[
-              { value: 0, display: t('easy') },
-              { value: 1, display: t('medium') },
-              { value: 2, display: t('hard') },
+        <ModelRadioSelection v-else-if="key === 'difficulty'"
+          v-model="options[key]"
+          secondaryColor
+          :options="[
+            { value: 0, display: t('easy') },
+            { value: 1, display: t('medium') },
+            { value: 2, display: t('hard') },
 
-            ]"
+          ]"
         />
       </span>
     </div>

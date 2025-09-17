@@ -1,5 +1,5 @@
 <template>
-  <label class="toggle-switch">
+  <label :class="`toggle-switch ${props.secondaryColor ? 'secondary-color' : ''}`">
     <input type="checkbox" v-model="model">
     <span class="slider"></span>
   </label>
@@ -12,6 +12,11 @@ const props = defineProps({
   modelValue: {
     type: Boolean,
     required: true
+  },
+  secondaryColor: {
+    type: Boolean,
+    required: false,
+    default: false
   }
 })
 
@@ -25,11 +30,17 @@ const model = computed({
 
 <style scoped>
 .toggle-switch {
+  --accent-color: dodgerblue;
+  --secondary-color: mediumpurple;
   position: relative;
   display: inline-block;
   width: 40px;
   height: 22px;
 }
+.toggle-switch.secondary-color {
+  --accent-color: var(--secondary-color);
+}
+
 .toggle-switch input {
   opacity: 0;
   width: 0;
@@ -58,7 +69,7 @@ const model = computed({
   transition: transform 0.2s;
 }
 input:checked + .slider {
-  background-color: dodgerblue;
+  background-color: var(--accent-color);
 }
 input:checked + .slider::before {
   transform: translateX(18px);

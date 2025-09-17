@@ -130,17 +130,13 @@
   function play() {
     window.open(`/${createdId.value}?lang=${language.value}`, '_blank')
   }
-
-
 </script>
 
 
 <style scoped>
-
-
 .wrapper {
   --accent-color: dodgerblue;
-  --secondary-color: red;
+  --secondary-color: mediumpurple;
 
   font-family: sans-serif;
   font-size: 14px;
@@ -201,7 +197,6 @@
   text-align: center;
   padding: 1em;
 }
-
 #name-input {
   border: none;
   border-bottom: 4px solid #AAAAAA;
