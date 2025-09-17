@@ -11,6 +11,7 @@
         />
         <ModelNaturalNumber
           v-else-if="key === 'potion_making_rounds'"
+          :min="1"
           :max="15"
           secondaryColor
           v-model="options[key]"
