@@ -2,7 +2,7 @@
   <div :class="`natural-number-control ${props.secondaryColor ? 'secondary-color' : ''}`">
     <button
     	@click="decrement"
-    	:disabled="modelValue <= 0"
+    	:disabled="modelValue <= min"
     >−</button>
     <span class="value">{{ modelValue }}</span>
     <button
@@ -23,6 +23,11 @@ const props = defineProps({
   	required: false,
   	default: Infinity
   },
+  min: {
+    type: Number,
+    required: false,
+    default: 0
+  },
   secondaryColor: {
     type: Boolean,
     required: false,
@@ -33,15 +38,11 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue'])
 
 const decrement = () => {
-  if (props.modelValue > 0) {
-    emit('update:modelValue', props.modelValue - 1)
-  }
+  emit('update:modelValue', props.modelValue - 1)
 }
 
 const increment = () => {
-	if (props.modelValue < props.max) {
-    	emit('update:modelValue', props.modelValue + 1)
-  	}
+  emit('update:modelValue', props.modelValue + 1)
 }
 </script>
 
