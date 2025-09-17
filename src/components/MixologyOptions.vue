@@ -1,17 +1,29 @@
 <template>
   <div class="table">
-    <p><em>{{ t('chirpy_instructions') }}</em></p>
+    <p><em>{{ t('mixology_instructions') }}</em></p>
     <div class="row" v-for="(val, key) in options" :key="key">
       <span class="label">{{ t(key) }}</span>
       <span class="action">
         <ToggleSwitch
-          v-if="typeof val === 'boolean'"
+          v-if="key === 'mixed_units'"
+          secondaryColor
           v-model="options[key]"
         />
         <ModelNaturalNumber
-          v-else-if="typeof val === 'number'"
+          v-else-if="key === 'potion_making_rounds'"
           :max="15"
+          secondaryColor
           v-model="options[key]"
+        />
+        <ModelRadioSelection v-else-if="key === 'difficulty'"
+          v-model="options[key]"
+          secondaryColor
+          :options="[
+            { value: 0, display: t('easy') },
+            { value: 1, display: t('medium') },
+            { value: 2, display: t('hard') },
+
+          ]"
         />
       </span>
     </div>
@@ -21,6 +33,7 @@
 <script setup>
 import ToggleSwitch from './ToggleSwitch.vue'
 import ModelNaturalNumber from './ModelNaturalNumber.vue'
+import ModelRadioSelection from './ModelRadioSelection.vue'
 import translations from '../translations/translations.js'
 
 const props = defineProps({

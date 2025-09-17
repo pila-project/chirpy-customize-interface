@@ -2,12 +2,18 @@ import { validate as isUUID } from 'uuid'
 import Agent from '@knowlearning/agents'
 import { createApp } from 'vue'
 import App from './App.vue'
-import EmbedChirpy from './EmbedChirpy.vue'
+import EmbedCandli from './EmbedCandli.vue'
+import NotFound from './components/NotFound.vue'
 import './main.css'
 
 window.Agent = Agent
 
-const id = location.pathname.slice(1)
+const pathSegment = location.pathname.slice(1)
 
-if (isUUID(id)) createApp(EmbedChirpy, { id }).mount('#app')
-else createApp(App).mount('#app')
+if (isUUID(pathSegment)) {
+	createApp(EmbedCandli, { id: pathSegment }).mount('#app')
+} else if (pathSegment === 'chirpy' || pathSegment === 'mixology') {
+	createApp(App, { path: pathSegment }).mount('#app')
+} else {
+	createApp(NotFound).mount('#app')
+}
