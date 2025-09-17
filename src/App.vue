@@ -1,17 +1,24 @@
 <template>
   <div class="wrapper">
 
-    <Header :language="language" @language="language = $event"/>
+    <Header
+      :path="props.path"
+      :language="language"
+      @language="language = $event"
+    />
 
-    <p><em>{{ t('instructions_1') }}</em></p>
+    <ChirpyOptions v-if="props.path ==='chirpy'"
+      :options="options"
+      :language="language"
+    />
+    <MixologyOptions v-else-if="props.path === 'mixology'"
+      :options="options"
+      :language="language"
+    />
 
-    <ChirpyOptions :options="options" :language="language" />
 
-    <div
-      v-if="createdId"
-      class="created-id"
-    >
-      {{ t('instructions_2') }}
+    <div v-if="createdId" class="created-id">
+      {{ t('created_message') }}
       <br><br>
       {{ createdId }}
       <button
@@ -28,13 +35,7 @@
         {{ t('play') }}
       </button>
     </div>
-    <div
-      v-else
-      style="
-        display: flex;
-        justify-content: space-between;
-      "
-    >
+    <div v-else class="input-and-create-wrapper">
       <input
         id="name-input"
         type='text'
@@ -53,25 +54,46 @@
 <script setup>
   import { ref, reactive, watch } from 'vue'
   import ChirpyOptions from './components/ChirpyOptions.vue'
+  import MixologyOptions from './components/MixologyOptions.vue'
   import Header from './components/Header.vue'
   import matchNavigatorLanguage from './translations/matchNavigatorLanguage.js'
   import translations from './translations/translations.js'
+
+  const props = defineProps([ 'path' ])
 
   function t(slug) {
     return translations(slug, language.value) // so lang isn't needed as argument for each call
   }
 
-  const language = ref(matchNavigatorLanguage(['en', 'th']))
+  const language = ref(matchNavigatorLanguage(['en', 'th', 'pl', 'fr', 'pt', 'km']))
   const nameInput = ref(t('new_chirpy_game'))
 
-  const options = reactive({
-    length: 3,
-//    distractors: false,
-    multiplication: true,
-    division: false,
-    nonIntegerDivision: false,
-    negDivision: false
-  })
+
+  const defaultOptions = {
+    chirpy: {
+      length: 3,
+      multiplication: true,
+      division: false,
+      nonIntegerDivision: false,
+      negDivision: false
+    },
+    mixology: {
+      potion_making_rounds: 4,
+      mixed_units: false,
+      difficulty: 0, // { 0: easy, 1: medium, 2: hard }
+    }
+  }
+  const gameId = {
+    chirpy: '25a6ac35e1c25713b5fedd0008599a52',
+    mixology: 'de6a2f6f709e57a1b3aa6358a5a8d0bb'
+  }
+  const gameImages = {
+    chirpy: 'https://chirpy-bird.pilaproject.org/Chirpy.png',
+    mixology: 'https://chirpy-bird.pilaproject.org/Chirpy.png',
+    default: 'https://chirpy-bird.pilaproject.org/Chirpy.png',
+
+  }
+  const options = reactive(defaultOptions[props.path])
 
   watch(
     () => options,
@@ -86,8 +108,8 @@
     const id = await Agent.create({
       active: {
         name: nameInput.value,
-        game: '25a6ac35e1c25713b5fedd0008599a52',
-        image: 'https://chirpy-bird.pilaproject.org/Chirpy.png',
+        game: gameId[props.path],
+        image: gameImages[props.path],
         configuration: JSON.parse(JSON.stringify(options))
       }
     })
@@ -126,7 +148,6 @@
   border-radius: 16px;
 }
 
-
 .copy-button,
 .play-button,
 .create-button {
@@ -163,15 +184,22 @@
   opacity: 0.8;
 }
 
+.input-and-create-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
 .created-id {
   text-align: center;
   padding: 1em;
 }
 
+
+
 #name-input {
   border: none;
   border-bottom: 4px solid #AAAAAA;
   padding: 0px 16px;
+  margin-right: 8px;
   flex-grow: 1;
   font-size: 20px;
 }

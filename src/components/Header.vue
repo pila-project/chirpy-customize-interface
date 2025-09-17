@@ -1,7 +1,9 @@
 <template>
 	<div class="logo-and-title">
 		<div class="left">
-			<img src="../assets/Chirpy.png">
+			<img v-if="props.path === 'mixology'" src="../assets/Mixology.png">
+			<img v-else-if="props.path ==='chirpy'" src="../assets/Chirpy.png">
+			<img v-else src="../assets/Chirpy.png">
 		</div>
 
 		<div class="right">
@@ -16,6 +18,10 @@
 		>
 			<option value="en">EN</option>
 			<option value="th">TH</option>
+			<option value="fr">FR</option>
+			<option value="pl">PL</option>
+			<option value="pt">PT</option>
+			<option value="km">KM</option>
 		</select>
 
 	</div>
@@ -23,7 +29,7 @@
 
 <script setup>
 import t from '../translations/translations.js'
-const props = defineProps([ 'language' ])
+const props = defineProps([ 'language', 'path' ])
 const emits = defineEmits([ 'language' ])
 
 </script>
@@ -50,7 +56,7 @@ align-items: center;
 	font-weight: normal;
 }
 img {
-	width: 70px;
-	margin-right: 30px;
+	width: 80px;
+	margin: 10px 30px;
 }
 </style>

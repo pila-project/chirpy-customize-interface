@@ -6,7 +6,7 @@
 
   const { id } = defineProps({ id: String })
 
-  const chirpyLink = ref(null)
+  const candliLink = ref(null)
 
   let gameId
 
@@ -18,8 +18,11 @@
       variables.configuration = configuration
       const urlParams = new URLSearchParams(window.location.search)
       const langParam = urlParams.get('lang')
+
+
+
       const lang = langParam || variables.LANGUAGES?.[0]?.split('-')[0] || 'en'
-      chirpyLink.value = `https://pila.cand.li/pila-play.html?game=${game}&lang=${lang}`
+      candliLink.value = `https://pila.cand.li/pila-play.html?game=${game}&lang=${lang}`
     })
 
   async function handleClose(info) {
@@ -49,8 +52,8 @@
     "
   >
     <vueEmbedComponent
-      v-if="chirpyLink"
-      :id="chirpyLink"
+      v-if="candliLink"
+      :id="candliLink"
       @close="handleClose"
     />
   </div>
