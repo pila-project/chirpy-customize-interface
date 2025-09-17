@@ -1,9 +1,9 @@
 <template>
 	<div class="logo-and-title">
 		<div class="left">
-			<img v-if="props.path === 'mixology'" src="../assets/Mixology.png">
-			<img v-else-if="props.path ==='chirpy'" src="../assets/Chirpy.png">
-			<img v-else src="../assets/Chirpy.png">
+			<img v-if="props.path === 'mixology'" src="/Mixology.png">
+			<img v-else-if="props.path ==='chirpy'" src="/Chirpy.png">
+			<img v-else src="/Chirpy.png">
 		</div>
 
 		<div class="right">

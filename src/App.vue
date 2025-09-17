@@ -84,7 +84,7 @@
   }
   const gameImages = {
     chirpy: 'https://chirpy-bird.pilaproject.org/Chirpy.png',
-    mixology: 'https://chirpy-bird.pilaproject.org/Chirpy.png',
+    mixology: 'https://chirpy-bird.pilaproject.org/Mixology.png',
     default: 'https://chirpy-bird.pilaproject.org/Chirpy.png',
 
   }
