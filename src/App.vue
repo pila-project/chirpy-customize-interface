@@ -64,11 +64,6 @@
   function t(slug) {
     return translations(slug, language.value) // so lang isn't needed as argument for each call
   }
-
-  const language = ref(matchNavigatorLanguage(['en', 'th', 'pl', 'fr', 'pt', 'km']))
-  const nameInput = ref(t('new_chirpy_game'))
-
-
   const defaultOptions = {
     chirpy: {
       length: 3,
@@ -93,6 +88,16 @@
     default: 'https://chirpy-bird.pilaproject.org/Chirpy.png',
 
   }
+  const newGameNameSlug = {
+    chirpy: 'new_chirpy_game',
+    mixology: 'new_mixology_game',
+    default: 'new_chirpy_game'
+  }
+
+  const language = ref(matchNavigatorLanguage(['en', 'th', 'pl', 'fr', 'pt', 'km']))
+  const nameInput = ref( t(newGameNameSlug[props.path]) )
+
+
   const options = reactive(defaultOptions[props.path])
 
   watch(

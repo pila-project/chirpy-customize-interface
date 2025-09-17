@@ -11,7 +11,7 @@ window.Agent = Agent
 const pathSegment = location.pathname.slice(1)
 
 if (isUUID(pathSegment)) {
-	createApp(EmbedChirpy, { id: pathSegment }).mount('#app')
+	createApp(EmbedCandli, { id: pathSegment }).mount('#app')
 } else if (pathSegment === 'chirpy' || pathSegment === 'mixology') {
 	createApp(App, { path: pathSegment }).mount('#app')
 } else {

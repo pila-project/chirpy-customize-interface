@@ -182,6 +182,14 @@ const translationMap = {
 		pt: "Novo jogo Chirpy",
 		km: "ល្បែង Chirpy ថ្មី"
 	},
+	new_mixology_game: {
+		en: "New Mixology Game",
+		th: "เกมเชอร์ปี้ใหม่",
+		fr: "Nouveau jeu Mixology",
+		pl: "Nowa gra Mixology",
+		pt: "Novo jogo Mixology",
+		km: "ល្បែង Mixology ថ្មី"
+	},
 	created_message: {
 		en: 'Copy the id below to use this game in your PILA sequences and assignments.',
 	}
