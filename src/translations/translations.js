@@ -67,6 +67,14 @@ const translationMap = {
 		km: "បានចម្លង!"
 	},
 	chirpy_instructions: {
+		en: "The game always uses addition and subtraction. Adjust the settings below and click 'Create' to generate a new game.",
+		th: "เกมนี้จะมีการบวกและการลบอยู่ในเกมด้วยเสมอ ปรับการตั้งค่าด้านล่าง แล้วคลิก 'สร้าง' เพื่อสร้างเกมใหม่",
+		fr: "Le jeu utilise toujours l’addition et la soustraction. Ajustez les paramètres ci-dessous et cliquez sur 'Créer' pour générer un nouveau jeu.",
+		pl: "Gra zawsze używa dodawania i odejmowania. Dostosuj ustawienia poniżej i kliknij 'Utwórz', aby wygenerować nową grę.",
+		pt: "O jogo sempre usa adição e subtração. Ajuste as configurações abaixo e clique em 'Criar' para gerar um novo jogo.",
+		km: "ហ្គេមតែងតែប្រើបូក និងដក។ កែតម្រូវការកំណត់ខាងក្រោម ហើយចុច 'បង្កើត' ដើម្បីបង្កើតហ្គេមថ្មី។"
+	},
+	mixology_instructions: {
 		en: "This game always uses integers and easy fractions. Adjust the settings below and click 'Create' to generate a new game.",
 		th: "เกมนี้จะใช้จำนวนเต็มและเศษส่วนง่าย ๆ เท่านั้น ปรับการตั้งค่าด้านล่างแล้วกด 'สร้าง' เพื่อสร้างเกมใหม่",
 		fr: "Ce jeu utilise toujours des nombres entiers et des fractions simples. Ajustez les paramètres ci-dessous et cliquez sur 'Créer' pour générer un nouveau jeu.",

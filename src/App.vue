@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div :class="`wrapper ${props.path}`">
 
     <Header
       :path="props.path"
@@ -136,7 +136,12 @@
 
 
 <style scoped>
+
+
 .wrapper {
+  --accent-color: dodgerblue;
+  --secondary-color: red;
+
   font-family: sans-serif;
   font-size: 14px;
 
@@ -144,8 +149,11 @@
   flex-direction: column;
   width: 400px;
   padding:  4px 40px;
-  border: dodgerblue solid 2px;
+  border: var(--accent-color) solid 2px;
   border-radius: 16px;
+}
+.wrapper.mixology {
+  --accent-color: var(--secondary-color);
 }
 
 .copy-button,
@@ -176,11 +184,12 @@
 
 
 .play-button {
-  background-color: dodgerblue;
+  background-color: var(--accent-color);
 }
+.play-button
 
 .play-button:hover {
-  background-color: dodgerblue;
+  background-color: var(--accent-color);
   opacity: 0.8;
 }
 
@@ -192,8 +201,6 @@
   text-align: center;
   padding: 1em;
 }
-
-
 
 #name-input {
   border: none;
