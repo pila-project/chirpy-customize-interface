@@ -13,7 +13,7 @@
 					language)
 				}}
 			</h3>
-			<h3>{{ t('game_creator',language) }}</h3>
+			<h3>{{ t('game_creator', props.language) }}</h3>
 		</div>
 
 		<select
@@ -21,14 +21,14 @@
 			:value="props.language"
 			@change="emits('language', $event.target.value)"
 		>
-			<option value="en">EN</option>
-			<option value="th">TH</option>
-			<option value="fr">FR</option>
-			<option value="pl">PL</option>
-			<option value="pt">PT</option>
-			<option value="km">KM</option>
+			<option
+				v-for="lang in languages"
+				:key="lang.code"
+				:value="lang.code"
+			>
+				{{ lang.label }}
+			</option>
 		</select>
-
 	</div>
 </template>
 
@@ -36,6 +36,15 @@
 import t from '../translations/translations.js'
 const props = defineProps([ 'language', 'path' ])
 const emits = defineEmits([ 'language' ])
+
+const languages = [
+	{ code: 'en', label: 'EN' },
+	{ code: 'th', label: 'TH' },
+	// { code: 'fr', label: 'FR' },
+	// { code: 'pl', label: 'PL' },
+	// { code: 'pt', label: 'PT' },
+	// { code: 'km', label: 'KM' },
+]
 
 </script>
 
@@ -50,7 +59,7 @@ const emits = defineEmits([ 'language' ])
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-align-items: center;
+	align-items: center;
 }
 
 .logo-and-title .right h3 {
