@@ -7,7 +7,12 @@
 		</div>
 
 		<div class="right">
-			<h3>{{ t('chirpys_adventure',language) }}</h3>
+			<h3>{{
+				t(
+					props.path === 'mixology' ? 'magical_mixology' : 'chirpys_adventure',
+					language)
+				}}
+			</h3>
 			<h3>{{ t('game_creator',language) }}</h3>
 		</div>
 

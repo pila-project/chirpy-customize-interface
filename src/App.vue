@@ -80,7 +80,7 @@
   }
   const gameId = {
     chirpy: '25a6ac35e1c25713b5fedd0008599a52',
-    mixology: 'de6a2f6f709e57a1b3aa6358a5a8d0bb'
+    mixology: '27d432ad29ad5e2c8d1c8ebf60d48c0a'
   }
   const gameImages = {
     chirpy: 'https://chirpy-bird.pilaproject.org/Chirpy.png',
