@@ -10,20 +10,22 @@ window.Agent = Agent
 
 const pathSegment = location.pathname.slice(1)
 
-if (isUUID(pathSegment)) {
+;(async () => {
+	if (isUUID(pathSegment)) {
 
-	// for favicon, gotta grab data of uuid. annoying
-	// this image is a url, but I'll just use it to know what type it is and point to public
-	const { image } = await Agent.state(pathSegment)
-	setFavicon(image.contains('Chirpy') ? '/Chirpy.png' : '/Mixology.png')
+		// for favicon, gotta grab data of uuid. annoying
+		// this image is a url, but I'll just use it to know what type it is and point to public
+		const { image } = await Agent.state(pathSegment)
+		setFavicon(image.contains('Chirpy') ? '/Chirpy.png' : '/Mixology.png')
 
-	createApp(EmbedCandli, { id: pathSegment }).mount('#app')
-} else if (pathSegment === 'chirpy' || pathSegment === 'mixology') {
-	setFavicon(pathSegment === 'chirpy' ? '/Chirpy.png' : '/Mixology.png')
-	createApp(App, { path: pathSegment }).mount('#app')
-} else {
-	createApp(NotFound).mount('#app')
-}
+		createApp(EmbedCandli, { id: pathSegment }).mount('#app')
+	} else if (pathSegment === 'chirpy' || pathSegment === 'mixology') {
+		setFavicon(pathSegment === 'chirpy' ? '/Chirpy.png' : '/Mixology.png')
+		createApp(App, { path: pathSegment }).mount('#app')
+	} else {
+		createApp(NotFound).mount('#app')
+	}
+})()
 
 function setFavicon(path) {
   const link =
