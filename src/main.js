@@ -7,16 +7,14 @@ import NotFound from './components/NotFound.vue'
 import './main.css'
 
 window.Agent = Agent
-
 const pathSegment = location.pathname.slice(1)
 
 ;(async () => {
 	if (isUUID(pathSegment)) {
-
 		// for favicon, gotta grab data of uuid. annoying
 		// this image is a url, but I'll just use it to know what type it is and point to public
 		const { image } = await Agent.state(pathSegment)
-		setFavicon(image.contains('Chirpy') ? '/Chirpy.png' : '/Mixology.png')
+		setFavicon(image.includes('Chirpy') ? '/Chirpy.png' : '/Mixology.png')
 
 		createApp(EmbedCandli, { id: pathSegment }).mount('#app')
 	} else if (pathSegment === 'chirpy' || pathSegment === 'mixology') {
