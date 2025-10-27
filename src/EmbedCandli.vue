@@ -26,14 +26,9 @@
     })
 
   async function handleClose(info) {
-    if (Agent.embedded) {
-      await Agent.synced()
-      const latestCompetencies = await Agent.state(`pila/latest_competencies/${gameId}`)
-      Agent.close({ competencies: copy(latestCompetencies), success: info?.success })
-    }
-    else {
-      closeInfo.value = info
-    }
+    await Agent.synced()
+    const latestCompetencies = await Agent.state(`pila/latest_competencies/${gameId}`)
+    if (Agent.embedded) Agent.close({ competencies: copy(latestCompetencies), success: info?.success })
     await clearOutLatestCompetencies()
   }
 
