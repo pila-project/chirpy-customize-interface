@@ -191,6 +191,11 @@ const translationMap = {
 		km: "ល្បែង Mixology ថ្មី"
 	},
 	created_message: {
-		en: 'Copy the id below to use this game in your PILA sequences and assignments.',
+		en: "Copy the id below to use this game in your PILA sequences and assignments.",
+		th: "คัดลอกรหัสด้านล่างเพื่อใช้เกมนี้ในลำดับและงานมอบหมายของ PILA ของคุณ",
+		fr: "Copiez l'identifiant ci-dessous pour utiliser ce jeu dans vos séquences et devoirs PILA.",
+		pl: "Skopiuj identyfikator poniżej, aby użyć tej gry w swoich sekwencjach i zadaniach PILA.",
+		pt: "Copie o ID abaixo para usar este jogo em suas sequências e tarefas do PILA.",
+		km: "ចម្លងលេខសម្គាល់ខាងក្រោម ដើម្បីប្រើល្បែងនេះក្នុងលំដាប់ និងការងារផ្ដល់หมาย PILA របស់អ្នក។"
 	}
 }
