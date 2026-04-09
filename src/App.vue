@@ -78,11 +78,11 @@
       negDivision: false
     },
     invaders: {
-      rounds_per_selected_operation: 6,
-      addition: true,
-      subtraction: false,
-      multiplication: false,
-      division: false
+      Rounds: 6,
+      Addition: true,
+      Subtraction: false,
+      Multiplication: false,
+      Division: false
     },
     mixology: {
       potion_making_rounds: 4,

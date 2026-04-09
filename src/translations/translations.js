@@ -214,13 +214,13 @@ const translationMap = {
 		pt: "Copie o ID abaixo para usar este jogo em suas sequências e tarefas do PILA.",
 		km: "ចម្លងលេខសម្គាល់ខាងក្រោម ដើម្បីប្រើល្បែងនេះក្នុងលំដាប់ និងការងារផ្ដល់หมาย PILA របស់អ្នក។"
 	},
-	rounds_per_selected_operation: {
-		en: "Rounds (per selected operation)",
-		th: "จำนวนรอบ (ต่อการดำเนินการที่เลือก)",
-		fr: "Manches (par opération sélectionnée)",
-		pl: "Rundy (na wybraną operację)",
-		pt: "Rodadas (por operação selecionada)",
-		km: "ជុំ (សម្រាប់ប្រតិបត្តិការដែលបានជ្រើស)"
+	rounds: {
+		en: "Rounds",
+		th: "รอบ",
+		fr: "Manches",
+		pl: "Rundy",
+		pt: "Rodadas",
+		km: "ជុំ"
 	},
 	addition: {
 		en: "Addition",

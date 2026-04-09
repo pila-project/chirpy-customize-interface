@@ -2,32 +2,32 @@
   <div class="table">
     <!-- <p><em>{{ t('invaders_instructions') }}</em></p> -->
     <div class="row" v-for="(val, key) in options" :key="key">
-      <span class="label">{{ t(key) }}</span>
+      <span class="label">{{ t(key.toLowerCase()) }}</span>
       <span class="action">
         <ModelNaturalNumber
-          v-if="key === 'rounds_per_selected_operation'"
+          v-if="key === 'Rounds'"
           :min="1"
           :max="20"
           secondaryColor
           v-model="options[key]"
         />
         <ToggleSwitch
-          v-else-if="key === 'addition'"
+          v-else-if="key.toLowerCase() === 'addition'"
           secondaryColor
           v-model="options[key]"
         />
         <ToggleSwitch
-          v-else-if="key === 'subtraction'"
+          v-else-if="key.toLowerCase() === 'subtraction'"
           secondaryColor
           v-model="options[key]"
         />
         <ToggleSwitch
-          v-else-if="key === 'multiplication'"
+          v-else-if="key.toLowerCase() === 'multiplication'"
           secondaryColor
           v-model="options[key]"
         />
         <ToggleSwitch
-          v-else-if="key === 'division'"
+          v-else-if="key.toLowerCase() === 'division'"
           secondaryColor
           v-model="options[key]"
         />
