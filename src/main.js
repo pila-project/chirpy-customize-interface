@@ -9,27 +9,45 @@ import './main.css'
 window.Agent = Agent
 const pathSegment = location.pathname.slice(1)
 
+const faviconMap = {
+	chirpy: '/Chirpy.png',
+	mixology: '/Mixology.png',
+	invaders: '/Invaders.png',
+}
+
+function getAppTypeFromImage(image) {
+	const lower = image.toLowerCase()
+	if (lower.includes('chirpy')) return 'chirpy'
+	if (lower.includes('mixology')) return 'mixology'
+	if (lower.includes('invaders')) return 'invaders'
+	return null
+}
+
 ;(async () => {
 	if (isUUID(pathSegment)) {
-		// for favicon, gotta grab data of uuid. annoying
-		// this image is a url, but I'll just use it to know what type it is and point to public
 		const { image } = await Agent.state(pathSegment)
-		setFavicon(image.includes('Chirpy') ? '/Chirpy.png' : '/Mixology.png')
-
+		const appType = getAppTypeFromImage(image)
+		if (appType) setFavicon(faviconMap[appType])
 		createApp(EmbedCandli, { id: pathSegment }).mount('#app')
-	} else if (pathSegment === 'chirpy' || pathSegment === 'mixology') {
-		setFavicon(pathSegment === 'chirpy' ? '/Chirpy.png' : '/Mixology.png')
-		createApp(App, { path: pathSegment }).mount('#app')
-	} else {
-		createApp(NotFound).mount('#app')
+		return
 	}
+
+	const favicon = faviconMap[pathSegment]
+
+	if (favicon) {
+		setFavicon(favicon)
+		createApp(App, { path: pathSegment }).mount('#app')
+		return
+	}
+
+	createApp(NotFound).mount('#app')
 })()
 
 function setFavicon(path) {
-  const link =
-    document.querySelector("link[rel~='icon']") ||
-    document.createElement('link')
-  link.rel = 'icon'
-  link.href = path
-  document.head.appendChild(link)
+	const link =
+		document.querySelector("link[rel~='icon']") ||
+		document.createElement('link')
+	link.rel = 'icon'
+	link.href = path
+	document.head.appendChild(link)
 }
