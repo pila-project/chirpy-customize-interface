@@ -190,6 +190,14 @@ const translationMap = {
 		pt: "Novo jogo Mixology",
 		km: "ល្បែង Mixology ថ្មី"
 	},
+	new_invaders_game: {
+		en: "New Invaders Game",
+		th: "เกมอินเวเดอร์ใหม่",
+		fr: "Nouveau jeu Invaders",
+		pl: "Nowa gra Invaders",
+		pt: "Novo jogo Invaders",
+		km: "ល្បែង Invaders ថ្មី"
+	},
 	created_message: {
 		en: "Copy the id below to use this game in your PILA sequences and assignments.",
 		th: "คัดลอกรหัสด้านล่างเพื่อใช้เกมนี้ในลำดับและงานมอบหมายของ PILA ของคุณ",
@@ -197,5 +205,30 @@ const translationMap = {
 		pl: "Skopiuj identyfikator poniżej, aby użyć tej gry w swoich sekwencjach i zadaniach PILA.",
 		pt: "Copie o ID abaixo para usar este jogo em suas sequências e tarefas do PILA.",
 		km: "ចម្លងលេខសម្គាល់ខាងក្រោម ដើម្បីប្រើល្បែងនេះក្នុងលំដាប់ និងការងារផ្ដល់หมาย PILA របស់អ្នក។"
-	}
+	},
+	rounds_per_selected_operation: {
+		en: "Rounds (per selected operation)",
+		th: "จำนวนรอบ (ต่อการดำเนินการที่เลือก)",
+		fr: "Manches (par opération sélectionnée)",
+		pl: "Rundy (na wybraną operację)",
+		pt: "Rodadas (por operação selecionada)",
+		km: "ជុំ (សម្រាប់ប្រតិបត្តិការដែលបានជ្រើស)"
+	},
+	addition: {
+		en: "Addition",
+		th: "การบวก",
+		fr: "Addition",
+		pl: "Dodawanie",
+		pt: "Adição",
+		km: "ការបូក"
+	},
+
+	subtraction: {
+		en: "Subtraction",
+		th: "การลบ",
+		fr: "Soustraction",
+		pl: "Odejmowanie",
+		pt: "Subtração",
+		km: "ការដក"
+	},
 }

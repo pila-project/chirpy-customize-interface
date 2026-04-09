@@ -11,6 +11,10 @@
       :options="options"
       :language="language"
     />
+    <InvadersOptions v-if="props.path ==='invaders'"
+      :options="options"
+      :language="language"
+    />
     <MixologyOptions v-else-if="props.path === 'mixology'"
       :options="options"
       :language="language"
@@ -55,6 +59,7 @@
   import { ref, reactive, watch } from 'vue'
   import ChirpyOptions from './components/ChirpyOptions.vue'
   import MixologyOptions from './components/MixologyOptions.vue'
+  import InvadersOptions from './components/InvadersOptions.vue'
   import Header from './components/Header.vue'
   import matchNavigatorLanguage from './translations/matchNavigatorLanguage.js'
   import translations from './translations/translations.js'
@@ -72,6 +77,13 @@
       nonIntegerDivision: false,
       negDivision: false
     },
+    invaders: {
+      rounds_per_selected_operation: 6,
+      addition: true,
+      subtraction: false,
+      multiplication: false,
+      division: false
+    },
     mixology: {
       potion_making_rounds: 4,
       mixed_units: false,
@@ -80,17 +92,19 @@
   }
   const gameId = {
     chirpy: '25a6ac35e1c25713b5fedd0008599a52',
-    mixology: '27d432ad29ad5e2c8d1c8ebf60d48c0a'
+    mixology: '27d432ad29ad5e2c8d1c8ebf60d48c0a',
+    invaders: '3689b9aac42e5a4cb5f048e89cdbf80a',
   }
   const gameImages = {
-    chirpy: 'https://chirpy-bird.pilaproject.org/Chirpy.png',
-    mixology: 'https://chirpy-bird.pilaproject.org/Mixology.png',
-    default: 'https://chirpy-bird.pilaproject.org/Chirpy.png',
-
+    chirpy: 'chirpy-bird.pilaproject.org/Chirpy.png',
+    mixology: 'chirpy-bird.pilaproject.org/Mixology.png',
+    invaders: 'chirpy-bird.pilaproject.org/Invaders.png',
+    default: 'chirpy-bird.pilaproject.org/Chirpy.png',
   }
   const newGameNameSlug = {
     chirpy: 'new_chirpy_game',
     mixology: 'new_mixology_game',
+    invaders: 'new_invaders_game',
     default: 'new_chirpy_game'
   }
 
