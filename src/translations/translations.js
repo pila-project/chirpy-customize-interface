@@ -34,6 +34,14 @@ const translationMap = {
 		pt: "Mistura Mágica",
 		km: "ការលាយវេទមន្ត"
 	},
+	math_invaders: {
+		en: "Math Invaders",
+		th: "ผู้รุกรานคณิตศาสตร์",
+		fr: "Envahisseurs Mathématiques",
+		pl: "Najeźdźcy Matematyczni",
+		pt: "Invasores da Matemática",
+		km: "អ្នកលុកលុយគណិតវិទ្យា"
+	},
 	create: {
 		en: "Create",
 		th: "สร้าง",
