@@ -96,10 +96,10 @@
     invaders: '3689b9aac42e5a4cb5f048e89cdbf80a',
   }
   const gameImages = {
-    chirpy: 'chirpy-bird.pilaproject.org/Chirpy.png',
-    mixology: 'chirpy-bird.pilaproject.org/Mixology.png',
-    invaders: 'chirpy-bird.pilaproject.org/Invaders.png',
-    default: 'chirpy-bird.pilaproject.org/Chirpy.png',
+    chirpy: 'https://chirpy-bird.pilaproject.org/Chirpy.png',
+    mixology: 'https://chirpy-bird.pilaproject.org/Mixology.png',
+    invaders: 'https://chirpy-bird.pilaproject.org/Invaders.png',
+    default: 'https://chirpy-bird.pilaproject.org/Chirpy.png',
   }
   const newGameNameSlug = {
     chirpy: 'new_chirpy_game',
