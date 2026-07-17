@@ -2,7 +2,9 @@
   <div class="table">
     <!-- <p><em>{{ t('invaders_instructions') }}</em></p> -->
     <div class="row" v-for="(val, key) in options" :key="key">
-      <span class="label">{{ t(key.toLowerCase()) }}</span>
+      <span class="label">
+        {{ t(key === 'Rounds' ? 'rounds_per_selected_operation' : key.toLowerCase()) }}
+      </span>
       <span class="action">
         <ModelNaturalNumber
           v-if="key === 'Rounds'"

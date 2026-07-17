@@ -222,6 +222,14 @@ const translationMap = {
 		pt: "Rodadas",
 		km: "ជុំ"
 	},
+	rounds_per_selected_operation: {
+		en: "Rounds (per selected operation)",
+		th: "รอบ (ต่อการดำเนินการที่เลือก)",
+		fr: "Manches (par opération sélectionnée)",
+		pl: "Rundy (na wybrane działanie)",
+		pt: "Rodadas (por operação selecionada)",
+		km: "Khmer: ជុំ (សម្រាប់ប្រតិបត្តិការគណិតវិទ្យាដែលបានជ្រើសរើស)"
+	},
 	addition: {
 		en: "Addition",
 		th: "การบวก",
