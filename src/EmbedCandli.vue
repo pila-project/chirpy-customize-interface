@@ -16,6 +16,7 @@
       gameId = game
       const { variables } = await Agent.environment()
       variables.configuration = configuration
+      variables.configurationId = id
       const urlParams = new URLSearchParams(window.location.search)
       const langParam = urlParams.get('lang')
 
