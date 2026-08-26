@@ -1,10 +1,10 @@
 export default function t(slug, language) {
 	if (!translationMap[slug]) {
-		return `no slug found ${slug}`
 		console.warn('slug not found:', slug)
+		return `no slug found ${slug}`
 	} else if (!translationMap[slug][language]) {
-		return `no ${language} translation found for ${slug}`
 		console.warn(`no ${language} translation found for ${slug}`)
+		return `no ${language} translation found for ${slug}`
 	} else {
 		return translationMap[slug][language]
 	}
@@ -12,7 +12,7 @@ export default function t(slug, language) {
 const translationMap = {
 	chirpys_adventure: {
 		en: "Chirpy's Adventure",
-		th: "การผจญภัยของ Chirpy",
+		th: "การผจญภัยของเชอร์ปี้",
 		fr: "L’aventure de Chirpy",
 		pl: "Przygoda Chirpy",
 		pt: "A aventura de Chirpy",
@@ -20,7 +20,7 @@ const translationMap = {
 	},
 	game_creator: {
 		en: "Game Creator",
-		th: "ผู้สร้างเกม",
+		th: "เครื่องมือปรับแต่งเกม",
 		fr: "Créateur de jeu",
 		pl: "Twórca gry",
 		pt: "Criador de Jogos",
@@ -28,7 +28,7 @@ const translationMap = {
 	},
 	magical_mixology: {
 		en: "Magical Mixology",
-		th: "การผสมเวทย์มนตร์",
+		th: "ศาสตร์แห่งการปรุงน้ำเวทมนตร์",
 		fr: "Mixologie Magique",
 		pl: "Magiczna Mikstura",
 		pt: "Mistura Mágica",
@@ -36,7 +36,7 @@ const translationMap = {
 	},
 	math_invaders: {
 		en: "Math Invaders",
-		th: "ผู้รุกรานคณิตศาสตร์",
+		th: "คณิตพิชิตเอเลี่ยน",
 		fr: "Envahisseurs Mathématiques",
 		pl: "Najeźdźcy Matematyczni",
 		pt: "Invasores da Matemática",
@@ -44,13 +44,13 @@ const translationMap = {
 	},
 	create: {
 		en: "Create",
-		th: "สร้าง",
+		th: "ปรับแต่ง",
 		fr: "Créer",
 		pl: "Utwórz",
 		pt: "Criar",
 		km: "បង្កើត"
 	},
-	play : {
+	play: {
 		en: "Play",
 		th: "เล่น",
 		fr: "Jouer",
@@ -76,7 +76,7 @@ const translationMap = {
 	},
 	chirpy_instructions: {
 		en: "The game always uses addition and subtraction. Adjust the settings below and click 'Create' to generate a new game.",
-		th: "เกมนี้จะมีการบวกและการลบอยู่ในเกมด้วยเสมอ ปรับการตั้งค่าด้านล่าง แล้วคลิก 'สร้าง' เพื่อสร้างเกมใหม่",
+		th: "มีการบวกและการลบอยู่ในเกมนี้เสมอ ปรับแต่งการตั้งค่าตามต้องการ และคลิ๊ก ‘ปรับแต่ง’ เพื่อเซฟการตั้งค่าของคุณ",
 		fr: "Le jeu utilise toujours l’addition et la soustraction. Ajustez les paramètres ci-dessous et cliquez sur 'Créer' pour générer un nouveau jeu.",
 		pl: "Gra zawsze używa dodawania i odejmowania. Dostosuj ustawienia poniżej i kliknij 'Utwórz', aby wygenerować nową grę.",
 		pt: "O jogo sempre usa adição e subtração. Ajuste as configurações abaixo e clique em 'Criar' para gerar um novo jogo.",
@@ -84,7 +84,7 @@ const translationMap = {
 	},
 	mixology_instructions: {
 		en: "This game always uses integers and easy fractions. Adjust the settings below and click 'Create' to generate a new game.",
-		th: "เกมนี้จะใช้จำนวนเต็มและเศษส่วนง่าย ๆ เท่านั้น ปรับการตั้งค่าด้านล่างแล้วกด 'สร้าง' เพื่อสร้างเกมใหม่",
+		th: "เกมนี้ใช้จำนวนเต็มและเศษส่วนง่ายๆเท่านั้น ปรับแต่งการตั้งค่าตามต้องการ และคลิ๊ก ‘ปรับแต่ง’ เพื่อเซฟการตั้งค่าของคุณ",
 		fr: "Ce jeu utilise toujours des nombres entiers et des fractions simples. Ajustez les paramètres ci-dessous et cliquez sur 'Créer' pour générer un nouveau jeu.",
 		pl: "Ta gra zawsze używa liczb całkowitych i prostych ułamków. Dostosuj ustawienia poniżej i kliknij 'Utwórz', aby wygenerować nową grę.",
 		pt: "Este jogo sempre usa números inteiros e frações fáceis. Ajuste as configurações abaixo e clique em 'Criar' para gerar um novo jogo.",
@@ -92,7 +92,7 @@ const translationMap = {
 	},
 	potion_making_rounds: {
 		en: "Potion Making Rounds",
-		th: "รอบการปรุงยา",
+		th: "รอบการปรุงน้ำอมฤต",
 		fr: "Tours de Préparation de Potions",
 		pl: "Rundy Tworzenia Mikstur",
 		pt: "Rodadas de Preparação de Poções",
@@ -170,10 +170,6 @@ const translationMap = {
 		pt: "Divisão resultando em não inteiros",
 		km: "ការចែកដែលឲ្យលទ្ធផលមិនមែនចំនួនគត់"
 	},
-	nonIntegerDivision: {
-		en: "Division resulting in non-integers",
-		th: "การหารที่ได้ผลลัพธ์ที่ไม่ใช่จำนวนเต็ม"
-	},
 	negDivision: {
 		en: "Division with negative numbers",
 		th: "การหารที่มีจำนวนลบ",
@@ -192,7 +188,7 @@ const translationMap = {
 	},
 	new_mixology_game: {
 		en: "New Mixology Game",
-		th: "เกมเชอร์ปี้ใหม่",
+		th: "เกมปรุงน้ำเวทมนตร์ใหม่",
 		fr: "Nouveau jeu Mixology",
 		pl: "Nowa gra Mixology",
 		pt: "Novo jogo Mixology",
@@ -228,7 +224,7 @@ const translationMap = {
 		fr: "Manches (par opération sélectionnée)",
 		pl: "Rundy (na wybrane działanie)",
 		pt: "Rodadas (por operação selecionada)",
-		km: "Khmer: ជុំ (សម្រាប់ប្រតិបត្តិការគណិតវិទ្យាដែលបានជ្រើសរើស)"
+		km: "ជុំ (សម្រាប់ប្រតិបត្តិការគណិតវិទ្យាដែលបានជ្រើសរើស)"
 	},
 	addition: {
 		en: "Addition",
@@ -238,7 +234,6 @@ const translationMap = {
 		pt: "Adição",
 		km: "ការបូក"
 	},
-
 	subtraction: {
 		en: "Subtraction",
 		th: "การลบ",
@@ -246,5 +241,5 @@ const translationMap = {
 		pl: "Odejmowanie",
 		pt: "Subtração",
 		km: "ការដក"
-	},
+	}
 }
