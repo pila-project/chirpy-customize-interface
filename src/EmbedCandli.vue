@@ -8,19 +8,14 @@
 
   const candliLink = ref(null)
 
-  let gameId
-
   Agent
     .state(id)
     .then(async ({ game, configuration }) => {
-      gameId = game
       const { variables } = await Agent.environment()
       variables.configuration = configuration
       variables.configurationId = id
       const urlParams = new URLSearchParams(window.location.search)
       const langParam = urlParams.get('lang')
-
-
 
       const lang = langParam || variables.LANGUAGES?.[0]?.split('-')[0] || 'en'
       candliLink.value = `https://pila.cand.li/pila-play.html?game=${game}&lang=${lang}`
@@ -28,13 +23,13 @@
 
   async function handleClose(info) {
     await Agent.synced()
-    const latestCompetencies = await Agent.state(`pila/latest_competencies/${gameId}`)
+    const latestCompetencies = await Agent.state(`pila/latest_competencies/${id}`)
     if (Agent.embedded) Agent.close({ competencies: copy(latestCompetencies), success: info?.success })
     await clearOutLatestCompetencies()
   }
 
   async function clearOutLatestCompetencies() {
-    const competencies = await Agent.state(`pila/latest_competencies/${gameId}`)
+    const competencies = await Agent.state(`pila/latest_competencies/${id}`)
     Object.keys(competencies).forEach(key => delete competencies[key])
   }
 </script>
