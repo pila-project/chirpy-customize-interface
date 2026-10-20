@@ -22,6 +22,8 @@
     })
 
   async function handleClose(info) {
+    // pause briefly in case candli reports updates with async races with close
+    await new Promise(r => setTimeout(r, 100))
     await Agent.synced()
     const latestCompetencies = await Agent.state(`pila/latest_competencies/${id}`)
     if (Agent.embedded) Agent.close({ competencies: copy(latestCompetencies), success: info?.success })
